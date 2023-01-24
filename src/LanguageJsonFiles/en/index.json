@@ -1,0 +1,67 @@
+{
+    "translation": {
+        "login": {
+            "leftSide": {
+                "tabs": {
+                    "aboutus": {
+                        "name": "About Us",
+                        "title": "Education Quality Assurance (EQA) an Accreditation Framework for NCAAA & ABET",
+                        "subTitle": "EQA is a web based application to automate",
+                        "description": "EQA is a web based application to automate the end to end Academic Accreditation Activities and strictly enforcing compliance requirements outlined by the Accreditation Agencies around the globe to improvise educational delivery methods and practices.",
+                        "learnMoreBtn": "Learn More",
+                        "findUs": "Find us on social media"
+                    },
+                    "noticeboard": {
+                        "name": "Notice Board",
+                        "title": "Announcements",
+                        "subTitle": "These are recent notifications listed below."
+                    }
+                }
+            },
+            "rightSide": {
+                "loginContainer": {
+                    "img": {
+                        "title": "EQA University",
+                        "alt": "EQA University"
+                    },
+                    "title": "Login With Your Account",
+                    "formInputs": {
+                        "userName": {
+                            "label": "User Name",
+                            "placeHolder": "Enter User Name"
+                        },
+                        "password": {
+                            "label": "Password",
+                            "placeHolder": "Enter Password"
+                        },
+                        "rememberMeText": "Remember me for the next 30 days",
+                        "btnLogin": "Login",
+                        "forgetPassword": "Forgot Password?",
+                        "clickHere": "click here"
+                    }
+                }
+            }
+        },
+        "forgetPassword": {
+            "title": "Forgot password?",
+            "subTitle":"You can reset your password here.",
+            "img":{
+                "img1":{
+                    "title":"EQA University",
+                    "alt":"EQA University"
+                },
+                "img2":{
+                    "title":"Forget Password",
+                    "alt":"Reset Password"
+                }
+            },
+            "formInputs": {
+                "userName": {
+                    "label": "Email Address",
+                    "placeHolder": "Example@gmail.com"
+                },
+                "btnResetPassword": "Reset Password"
+            }
+        }
+    }
+}

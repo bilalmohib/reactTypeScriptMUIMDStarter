@@ -1,0 +1,153 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+input[type=text]:focus:not([readonly])+label, input[type=password]:focus:not([readonly])+label {
+  color: #aab9bb;
+}
+
+input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]) {
+  border: 0.5px solid #4f747a;
+  box-shadow: 0 0.5px 0 0 #aab9bb;
+  /* border-radius: 0px; */
+}
+
+.css-pdct74-MuiTablePagination-selectLabel, .MuiTablePagination-selectLabel, .css-levciy-MuiTablePagination-displayedRows {
+  /* border: 1px solid rgb(0, 0, 0) !important; */
+  margin-top: 16px !important;
+}
+
+.form-outline input[type=text]:focus:not([readonly]), .form-outline input[type=password]:focus:not([readonly]) {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+input[type=checkbox] {
+  accent-color: #6bb6b5;
+  font-size: 30px !important;
+  background-color: white !important;
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+
+.dropdown-menu .dropdown-submenu {
+  display: none;
+  position: absolute;
+  left: -57%;
+  top: 0px;
+}
+
+.dropdown-menu .dropdown-submenu-left {
+  right: 100%;
+  left: auto;
+}
+
+.dropdown-menu>li:hover>.dropdown-submenu {
+  display: block;
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Calender CSS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+.responsive-calendar {
+  /* by setting font-size, all the elements will correspond */
+  font-size: 9px !important;
+  /* default to 10px */
+}
+
+@media (max-width: 1500px) {
+  .responsive-calendar {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .responsive-calendar {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .responsive-calendar {
+    font-size: 6px !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 2500px) {
+  .responsive-calendar {
+    font-size: 12px !important;
+  }
+}
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Calender CSS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+/* @@@@@@@@@@@@@@@@@@@@@@@@ EVENT CALENDER CSS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+:root {
+  --fc-small-font-size: .85em !important;
+  --fc-page-bg-color: #fff !important;
+  --fc-neutral-bg-color: rgba(208, 208, 208, 0.3) !important;
+  --fc-neutral-text-color: #808080 !important;
+  --fc-border-color: #ddd !important; 
+
+  --fc-button-text-color: #fff !important;
+  --fc-button-bg-color: #4f747a !important;
+  --fc-button-border-color: #4f747a !important;
+  --fc-button-hover-bg-color: #4f747ac3 !important;
+  --fc-button-hover-border-color: #4f747ac3 !important;
+  --fc-button-active-bg-color: #4f747ac3 !important;
+  --fc-button-active-border-color: #4f747ac3 !important;
+
+  --fc-event-bg-color: #7ee90c !important;
+  --fc-event-border-color: #4df610 !important;
+  --fc-event-text-color: #fff !important;
+  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25) !important; 
+
+  --fc-more-link-bg-color: #d0d0d0 !important;
+  --fc-more-link-text-color: inherit;
+
+  --fc-event-resizer-thickness: 8px;
+  --fc-event-resizer-dot-total-width: 8px;
+  --fc-event-resizer-dot-border-width: 1px;
+
+  --fc-non-business-color: rgba(215, 215, 215, 0.3) !important;
+  --fc-bg-event-color: rgb(143, 223, 130) !important;
+  --fc-bg-event-opacity: 0.3 !important;
+  --fc-highlight-color: rgba(188, 232, 241, 0.3) !important;
+  --fc-today-bg-color: rgba(255, 220, 40, 0.15) !important;
+  --fc-now-indicator-color: red !important;
+}
+
+.fc-col-header-cell-cushion{
+  color: #4f747a !important;
+}
+.fc-daygrid-day-number{
+  text-align: center !important;
+    color: #4f747a !important;
+    padding-right: 15px !important;
+    padding-top: 20px !important;
+}
+.fc-toolbar-title{
+  font-size: 20px !important;
+  padding-right: 12px !important;
+}
+/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ EVENT CALENDER CSS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+
+
+/* ENABLE BOOTSTRAP DROPDOWN ON HOVER */
+.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0; /* remove the gap so it doesn't close */
+}
+/* ENABLE BOOTSTRAP DROPDOWN ON HOVER */
