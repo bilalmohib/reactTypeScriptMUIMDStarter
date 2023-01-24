@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 
+// Importing Components
+import Header from "../../Components/Header";
+
+// Importing Material UI
+import Button from '@mui/material/Button';
+
 import styles from "./style.module.css";
 
 const Home = () => {
@@ -26,12 +32,12 @@ const Home = () => {
 
 
     return (
-        <div className={styles.HomeContainer}>
-            {/* <Header /> */}
-            <div className="container bg-light">
+        <div className={`${styles.HomeContainer} bg-light`}>
+            <Header />
+            <div className="container">
                 <div className="row">
                     <div className="col-md-12">
-                        <h2 className="text-primary">
+                        <h2 className="text-primary mt-4">
                             React TypeScript based MUI & MD Starter
                         </h2>
 
@@ -44,6 +50,8 @@ const Home = () => {
                             <li> Typescript = 4.9.4 </li>
                             <li> Md bootstrap(mdb) = 6.1.0 </li>
                         </ul>
+                        <br />
+                        <Button variant="contained">Press Me</Button>
                     </div>
                 </div>
             </div>

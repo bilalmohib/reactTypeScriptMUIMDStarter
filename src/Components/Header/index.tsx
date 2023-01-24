@@ -1,181 +1,162 @@
-import { useEffect, FC, useState } from "react";
-// import { useNavigate } from "react-router";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AcUnit from '@mui/icons-material/AcUnit';
 
-import i18n from "../../i18n";
-//Importing useTranslation and Trans from react-i18next
-import { useTranslation, Trans } from 'react-i18next';
+const pages = ['Products', 'Pricing', 'Blog'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-import logo from "../../assets/Images/Navbar/logo.png";
-// Language Images
-import eng from "../../assets/Images/Navbar/united-kingdom.png";
-import saud from "../../assets/Images/Navbar/saudi-arabia.png";
-import styles from './style.module.css';
+const Header = () => {
+    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
-const lngs = {
-    en: { nativeName: 'English' },
-    de: { nativeName: 'Deutsch' },
-    chi: { nativeName: 'Chinese' },
-    ar: { nativeName: 'Arabic' }
-};
+    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElNav(event.currentTarget);
+    };
+    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorElUser(event.currentTarget);
+    };
 
-interface HeaderProps {
-    setMobileViewContainer: any,
-    setCurrentTab: any
-}
+    const handleCloseNavMenu = () => {
+        setAnchorElNav(null);
+    };
 
-const Header: FC<HeaderProps> = ({
-    setMobileViewContainer,
-    setCurrentTab
-}): JSX.Element => {
-    // const navigate = useNavigate();
-
-    const [currentLang, setCurrentLang] = useState<string>("en");
-
-    const changeTheLanguage = (e: any) => {
-        i18n.changeLanguage(e);
-        // if (e === "en") {
-        //     // alert("Language changed english")
-        //     // navigate(`/`);
-        // }
-        // else {
-        //     // navigate(`/${e}`);            
-        //     // alert("Language Arabic")
-        // }
-    }
-
-    useEffect(() => {
-        // The debounce function receives our function as a parameter
-        const debounce = (fn: any) => {
-            // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-            let frame: any;
-            // The debounce function returns a new function that can receive a variable number of arguments
-            return (...params: any) => {
-                // If the frame variable has been defined, clear it now, and queue for next frame
-                if (frame) {
-                    cancelAnimationFrame(frame);
-                }
-                // Queue our function call for the next frame
-                frame = requestAnimationFrame(() => {
-                    // Call our function and pass any params we received
-                    fn(...params);
-                });
-            }
-        };
-
-        // Reads out the scroll position and stores it in the data attribute
-        // so we can use it in our stylesheets
-        const storeScroll = () => {
-            // @ts-ignore
-            document.documentElement.dataset.scroll = window.scrollY;
-        }
-
-        // Listen for new scroll events, here we debounce our `storeScroll` function
-        document.addEventListener('scroll', debounce(storeScroll), { passive: true });
-
-        // Update scroll position for first time
-        storeScroll();
-    })
-
-    const selectLanguage = (value: any) => {
-        if (value === "en") {
-            changeTheLanguage("ar");
-            document.documentElement.setAttribute("lang", 'ar');
-            document.documentElement.setAttribute("dir", 'rtl');
-            setCurrentLang("ar");
-        } else if (value === "ar") {
-            changeTheLanguage("en");
-            document.documentElement.setAttribute("lang", 'en');
-            document.documentElement.setAttribute("dir", 'ltl');
-            setCurrentLang("en");
-        }
-    }
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
 
     return (
-        <header className={`container`}>
-            <div className={styles.headerContainer}>
-                <div className={styles.logoMobileContainer}>
-                    <img
-                        className={styles.logo}
-                        src={logo}
-                        alt="EQA University"
-                        title="EQA University"
-                    />
-                </div>
-                <div className={`d-flex ${styles.mobileDropStyle}`}>
-                    <div>
-                        <div className="dropdown" title="Select a language for the site">
-                            <div style={{ direction: "ltr" }} className={`${styles.langDropDown}`} id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-                                <img
-                                    width={25}
-                                    height={25}
-                                    src={(currentLang === "en") ? (eng) : (saud)}
-                                    alt="English"
-                                    title="English"
-                                />
-                                <p>
-                                    {/* {(currentLang === "en") ? ("Eng") : ("Ar")}  */}
-                                    <i className={`fas fa-chevron-down`}></i></p>
-                            </div>
-                            <ul className={`dropdown-menu ${styles.dropDownLang}`} aria-labelledby="dropdownMenuButton">
-                                <li onClick={() => selectLanguage("ar")}>
-                                    <a className={`dropdown-item ${styles.liElementDropDown}`} href="#English">
-                                        <div className={styles.dropDownContainer}>
-                                            <img
-                                                width={25}
-                                                height={25}
-                                                src={eng}
-                                                alt="English"
-                                                title="English"
-                                            />
-                                            <p>
-                                                English
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li onClick={() => selectLanguage("en")}>
-                                    <a className={`dropdown-item ${styles.liElementDropDown}`} href="#Arabic">
-                                        <div className={styles.dropDownContainer}>
-                                            <img
-                                                width={25}
-                                                height={25}
-                                                src={saud}
-                                                alt="Arabic"
-                                                title="Arabic"
-                                            />
-                                            <p>
-                                                Arabic
-                                            </p>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="dropdown">
-                            <div className={`${styles.menuDropDown}`} id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
-                                <i className="fas fa-bars"></i>
-                            </div>
-                            <ul className={`dropdown-menu`} aria-labelledby="dropdownMenuButton">
-                                <li onClick={() => {
-                                    setMobileViewContainer("Login");
-                                    setCurrentTab(1);
-                                }}><a className="dropdown-item" href="#Login">Login</a></li>
-                                <li onClick={() => {
-                                    setMobileViewContainer("About");
-                                    setCurrentTab(1);
-                                }}><a className="dropdown-item" href="#Announcement">About Us</a></li>
-                                <li onClick={() => {
-                                    setMobileViewContainer("Announcement");
-                                    setCurrentTab(2);
-                                }}><a className="dropdown-item" href="#NoticeBoard">Notice Board</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-    )
+        <AppBar position="static">
+            <Container maxWidth="xl">
+                <Toolbar disableGutters>
+                    <AcUnit sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="a"
+                        href="/"
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'none', md: 'flex' },
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        React Starter
+                    </Typography>
+
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <IconButton
+                            size="large"
+                            aria-label="account of current user"
+                            aria-controls="menu-appbar"
+                            aria-haspopup="true"
+                            onClick={handleOpenNavMenu}
+                            color="inherit"
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Menu
+                            id="menu-appbar"
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={handleCloseNavMenu}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                        >
+                            {pages.map((page) => (
+                                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">{page}</Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </Box>
+                    {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+                    <Typography
+                        variant="h5"
+                        noWrap
+                        component="a"
+                        href=""
+                        sx={{
+                            mr: 2,
+                            display: { xs: 'flex', md: 'none' },
+                            flexGrow: 1,
+                            fontFamily: 'monospace',
+                            fontWeight: 700,
+                            letterSpacing: '.3rem',
+                            color: 'inherit',
+                            textDecoration: 'none',
+                        }}
+                    >
+                        LOGO
+                    </Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                        {pages.map((page) => (
+                            <Button
+                                key={page}
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                {page}
+                            </Button>
+                        ))}
+                    </Box>
+
+                    <Box sx={{ flexGrow: 0 }}>
+                        <Tooltip title="Open settings">
+                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            </IconButton>
+                        </Tooltip>
+                        <Menu
+                            sx={{ mt: '45px' }}
+                            id="menu-appbar"
+                            anchorEl={anchorElUser}
+                            anchorOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'right',
+                            }}
+                            open={Boolean(anchorElUser)}
+                            onClose={handleCloseUserMenu}
+                        >
+                            {settings.map((setting) => (
+                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                                    <Typography textAlign="center">{setting}</Typography>
+                                </MenuItem>
+                            ))}
+                        </Menu>
+                    </Box>
+                </Toolbar>
+            </Container>
+        </AppBar>
+    );
 }
 export default Header;
