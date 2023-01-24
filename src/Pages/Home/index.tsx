@@ -26,15 +26,24 @@ const Home = () => {
 
 
     return (
-        <div className="container">
+        <div className={styles.HomeContainer}>
             {/* <Header /> */}
-            <div className="container">
+            <div className="container bg-light">
                 <div className="row">
-                    <div className="col-md-6">
-                        Left Side
-                    </div>
-                    <div className="col-md-6">
-                        Right Side
+                    <div className="col-md-12">
+                        <h2 className="text-primary">
+                            React TypeScript based MUI & MD Starter
+                        </h2>
+
+                        <br />
+
+                        <h4 className="text-info">Tech Stacks Used</h4>
+                        <ul>
+                            <li>React version = 18.2.0</li>
+                            <li> Material UI = 5.11.5</li>
+                            <li> Typescript = 4.9.4 </li>
+                            <li> Md bootstrap(mdb) = 6.1.0 </li>
+                        </ul>
                     </div>
                 </div>
             </div>
